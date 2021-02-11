@@ -7,13 +7,13 @@ import SnackContainer from './SnackContainer';
 
 function App() {
 
-  useEffect(() => {
-    fetch("http://[::1]:3001/snacks")
-    .then(r => r.json())
-    .then(snacksArray => {
-      return console.log(snacksArray)
-    })
-  }, []) 
+  // useEffect(() => {
+  //   fetch("http://[::1]:3001/snacks")
+  //   .then(r => r.json())
+  //   .then(snacksArray => {
+  //     return console.log(snacksArray)
+  //   })
+  // }, []) 
 
   return (
     <div>

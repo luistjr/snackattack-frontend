@@ -4,7 +4,7 @@ function Header() {
 
   return (
       <div>
-          <p>Hi</p>
+          <p>snackATTACK LOGO</p>
       </div>
   );
 }
