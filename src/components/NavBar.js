@@ -1,16 +1,17 @@
 import React from 'react'
 import NavBarCss from '../NavBar.css'
+import { Link } from "react-router-dom";
 
 function NavBar() {
 
   return (
-      <div class="flex-container">
-          <div>Home</div>
-          <div>Login</div>
-          <div>Logout</div>
-          <div>Signup</div>
-          <div>Stash</div>
-      </div>
+      <nav class="NavBar">
+          <Link to="/" exact className="button">Home</Link>
+          <Link to="/Login" exact className="button">Login</Link>
+          <Link to="/Logout" exact className="button">Logout</Link>
+          <Link to="/Signup" exact className="button">Signup</Link>
+          <Link to="/Stash" exact className="button">Stash</Link>
+      </nav>
   );
 }
 
