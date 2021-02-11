@@ -1,6 +1,7 @@
 import React from 'react'
 import NavBarCss from '../NavBar.css'
 import { Link } from "react-router-dom";
+import SignUpForm from "./SignUpForm"
 
 function NavBar() {
 
