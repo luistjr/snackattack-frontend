@@ -16,7 +16,7 @@ function LoginForm({setUser}) {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(loginName),
+      body: JSON.stringify({name: loginName}),
     })
       .then(response => response.json())
       .then(user => setUser(user))
