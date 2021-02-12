@@ -11,6 +11,15 @@ import Profile from './Profile';
 function App() {
   const [user, setUser] = useState(null);
 
+  useEffect(() => {
+
+    fetch('http://[::1]:3001/me')
+      .then(r => r.json())
+      .then(user => setUser(user))
+    // get request  // me
+    // use response to set user in state
+  }, [])
+
   // useEffect(() => {
   //   fetch("http://[::1]:3001/snacks")
   //   .then(r => r.json())
@@ -32,7 +41,7 @@ function App() {
             <SignUpForm />
           </Route>
           <Route path="/Profile">
-            <Profile user={user}/>
+            { user ? <Profile user={user} setUser={setUser}/> : <h1>You must login to see this page</h1>  }
           </Route>
         </Switch>
         <Header />

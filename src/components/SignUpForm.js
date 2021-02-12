@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Profile from './Profile';
 
 function SignUpForm() {
 
