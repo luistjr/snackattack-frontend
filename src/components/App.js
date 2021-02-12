@@ -9,7 +9,7 @@ import SignUpForm from './SignUpForm';
 import Profile from './Profile';
 
 function App() {
-  const [user, setUser] = useState([])
+  const [user, setUser] = useState(null);
 
   // useEffect(() => {
   //   fetch("http://[::1]:3001/snacks")
@@ -19,34 +19,20 @@ function App() {
   //   })
   // }, []) 
 
-  useEffect(() => {
-    fetch("http://[::1]:3001/users")
-    .then(r => r.json())
-    .then(usersArray => {
-        setUser(usersArray.map(user => {
-          return <Profile
-          key={user.id}
-          user={user}
-          name={user.name}
-          age={user.age}
-          lifestyle={user.lifestyle}/>
-      }))
-    })
-  }, []) 
-
   console.log(user)
+
   return (
     <div className="App">
         <Navbar />
         <Switch>
           <Route path="/Login">
-            <LoginForm />
+            <LoginForm setUser={setUser}/>
           </Route>
           <Route path="/New">
             <SignUpForm />
           </Route>
           <Route path="/Profile">
-            <Profile />
+            <Profile user={user}/>
           </Route>
         </Switch>
         <Header />
