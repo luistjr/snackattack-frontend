@@ -1,10 +1,11 @@
 import React from 'react'
 
 function SnackItem({snack}) {
-console.log({snack})
+// console.log({snack})
 
 const { img, name } = snack
 
+console.log(img)
   return (
       <div>
           <h4>{name}</h4>
