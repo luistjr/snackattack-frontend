@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Profile from './Profile';
 
-function SignUpForm() {
+function SignUpForm({setUser}) {
 
     const [name, setName] = useState("");
     const [age, setAge] = useState("");
@@ -25,7 +25,7 @@ function SignUpForm() {
         })
             .then(response => response.json())
             .then(data => {
-                console.log('Success:', data);
+                setUser(data);
             })
     }
 

@@ -32,20 +32,23 @@ function App() {
 
   return (
     <div className="App">
-        <Navbar />
+        <Navbar user={user} setUser={setUser}/>
         <Switch>
           <Route path="/Login">
             <LoginForm setUser={setUser}/>
           </Route>
           <Route path="/New">
-            <SignUpForm />
+            <SignUpForm setUser={setUser}/>
           </Route>
           <Route path="/Profile">
-            { user ? <Profile user={user} setUser={setUser}/> : <h1>You must login to see this page</h1>  }
+            {/* { user ? <Profile user={user} setUser={setUser}/> : <h1>You must login to see this page</h1>  } */}
+            <Profile user={user} setUser={setUser}/>
+          </Route>
+          <Route path="/Stash">
+            <SnackContainer user={user} />
           </Route>
         </Switch>
         <Header />
-        <SnackContainer />
     </div>
   );
 }

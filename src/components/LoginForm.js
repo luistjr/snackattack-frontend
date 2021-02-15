@@ -1,7 +1,7 @@
 import userEvent from '@testing-library/user-event';
 import React, { useState } from 'react'
 
-function LoginForm({setUser}) {
+function LoginForm({ setUser }) {
 
   const [loginName, setLoginName] = useState("");
 

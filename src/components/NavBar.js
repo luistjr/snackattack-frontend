@@ -1,18 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import NavBarCss from '../NavBar.css'
 import { Link } from "react-router-dom";
-import SignUpForm from "./SignUpForm"
+// import SignUpForm from "./SignUpForm"
+// import LoginForm from './LoginForm'
 
-function NavBar() {
+function NavBar({user, setUser}) {
+  
+  
+  function logout() {
+    setUser(null);
+  }
 
   return (
-      <nav className="NavBar">
-          <Link to="/Profile"  className="button">Profile</Link>
-          <Link to="/Login"  className="button">Login</Link>
-          <Link to="/Logout"  className="button">Logout</Link>
-          <Link to="/New"  className="button">Signup</Link>
-          <Link to="/Stash"  className="button">Stash</Link>
-      </nav>
+    <nav className="NavBar">
+      <div>
+      <Link to="/"  className="button">Home</Link>
+      </div>
+      <div>
+        {user ? (
+          <>
+            <Link to="/Profile"  className="button">Profile</Link>
+            <Link to="/Stash"  className="button">Stash</Link>
+            <Link to="/Login" onClick={logout}>Logout</Link>
+          </>
+        ) : (
+          <>
+            <Link to="/New"  className="button">Signup</Link>
+            <Link to="/Login"  className="button">Login</Link>
+          </>
+        )}
+      </div>
+    </nav>
   );
 }
 

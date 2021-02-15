@@ -1,10 +1,25 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import SnackItem from './SnackItem'
 
 function SnackContainer() {
+  const [snacks, setSnacks] = useState([])
+  
+  useEffect(() => {
+    fetch('http://[::1]:3001/snacks')
+      .then(r => r.json())
+      .then(snacksArray => setSnacks(snacksArray))
+  }, [])
+
+  console.log(snacks)
+  
+  const snackList = 
+    snacks.map((snack) => {
+      return  <SnackItem snack={snack} />
+    })
 
   return (
       <div>
-          <p>Hi SnackContainer</p>
+         {snackList}
       </div>
   );
 }

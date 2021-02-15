@@ -1,10 +1,14 @@
 import React from 'react'
 
-function SnackItem() {
+function SnackItem({snack}) {
+console.log({snack})
+
+const { img, name } = snack
 
   return (
       <div>
-          <p>Hi</p>
+          <h4>{name}</h4>
+          <img src={img}/>
       </div>
   );
 }
