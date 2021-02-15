@@ -5,6 +5,8 @@ function SnackItem({snack}) {
 
 const { img, name } = snack
 
+let img_url = `http://[::1]:3001/${img}`
+
 console.log(img)
   return (
       <div>
