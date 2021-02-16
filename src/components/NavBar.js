@@ -21,6 +21,7 @@ function NavBar({user, setUser}) {
           <>
             <Link to="/Profile"  className="button">Profile</Link>
             <Link to="/Stash"  className="button">Stash</Link>
+            <Link to="/SnackContainer" className="button">All Snacks</Link>
             <Link to="/Login" onClick={logout}>Logout</Link>
           </>
         ) : (

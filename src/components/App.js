@@ -7,6 +7,7 @@ import SnackContainer from './SnackContainer';
 import LoginForm from './LoginForm';
 import SignUpForm from './SignUpForm';
 import Profile from './Profile';
+import Stash from './Stash';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -44,8 +45,11 @@ function App() {
             {/* { user ? <Profile user={user} setUser={setUser}/> : <h1>You must login to see this page</h1>  } */}
             <Profile user={user} setUser={setUser}/>
           </Route>
+          <Route path="/SnackContainer">
+            <SnackContainer user={user}/>
+          </Route>
           <Route path="/Stash">
-            <SnackContainer user={user} />
+            <Stash user={user} />
           </Route>
         </Switch>
         <Header />

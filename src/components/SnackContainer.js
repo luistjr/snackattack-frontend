@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import SnackItem from './SnackItem'
 
-function SnackContainer() {
+function SnackContainer({ user }) {
+  console.log(user)
   const [snacks, setSnacks] = useState([])
   
   useEffect(() => {
