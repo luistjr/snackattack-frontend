@@ -20,7 +20,6 @@ function SnackItem({ snack, user }) {
     .then(response => response.json())
     .then(data => {
       if (data.errors) {
-        // set errors to show errors in the form
         setErrors(data.errors);
       } else {
         console.log('Success:', data);

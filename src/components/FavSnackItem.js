@@ -1,10 +1,21 @@
 import React from 'react'
 
-function FavSnackItem({ stashItem }) {
+function FavSnackItem({ stashItem, userId, favorites }) {
 
 const { img, name, id } = stashItem;
-console.log(id)
+
+console.log({favorites})
+
+// const favoriteObj = {
+//   favUserId: favorites.id,
+//   snackId: favorites.snackId,
+//   favoritesId: favorites.favoritesId
+// }
+
+
 let img_url = `http://[::1]:3001/${img}`
+
+// How do we get favorites id? // 
 
 function handleRemoveFavorite(id){
     fetch(`http://[::1]:3001/favorites/${id}`, {

@@ -5,19 +5,32 @@ function Stash({ user }) {
 
     const { id } = user;
     const [stash, setStash] = useState([])
+    const [stashFavorites, setStashFavorites] = useState([])
 
-    const [favorites, setFavorites] = useState(null)
 
     useEffect(() => {
         fetch(`http://[::1]:3001/users/${id}`) 
             .then(r => r.json())
-            .then(data => setStash(data.snacks))
+            .then(data => {
+                setStash(data.snacks);
+                setStashFavorites(data.favorites);
+            })
     }, [])
+
+    // changed from favorites vs snacks
+
+   console.log(stash)
+   console.log(stashFavorites)
     
     let favoriteSnack = stash.map((stashItem) => {
-            return <FavSnackItem stashItem={stashItem} key={stashItem.id}/>
-            // need to create a unique key prop
-            // console.log(stashItem)
+
+        // console.log(stashItem)
+            return <FavSnackItem 
+            stashItem={stashItem} 
+            key={stashItem.id} 
+            userId={id}
+            favorites={stashFavorites}
+            />
         })
 
     return (
