@@ -1,25 +1,38 @@
-import React, { useState} from 'react'
+import React, { useState } from 'react'
 
-function SnackItem({snack, user}) {
-  const [stash, setStash] = useState({
-   
-  })
-// console.log({snack})
-  console.log(user)
-  function handleAddToStash() {
+function SnackItem({ snack, user }) {
 
+  // const favorite = { 
+  //   user_id: user.id,
+  //   snack_id: 
+  // }
+
+  function handleAddToStash(e) {
+    console.log(e.target)
+    // fetch('http://[::1]:3001/favorites', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify(favorite),
+    // })
+    // .then(response => response.json())
+    // .then(data => {
+    //   console.log('Success:', data);
+    // })
   }
-  const { img, name } = snack
+
+  const { img, name, id } = snack
 
   let img_url = `http://[::1]:3001/${img}`
 
-  console.log(img)
+  
     return (
         <div>
             <h4>{name}</h4>
             <img src={img_url}/>
             <br />
-            <button onClick={handleAddToStash}>Add to Favorites</button>
+            <button onClick={handleAddToStash} dataset={id}>Add to Favorites</button>
             <hr />
         </div>
     );

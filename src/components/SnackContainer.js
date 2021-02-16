@@ -15,7 +15,7 @@ function SnackContainer({ user }) {
   
   const snackList = 
     snacks.map((snack) => {
-      return  <SnackItem key={snack.id} snack={snack} />
+      return  <SnackItem key={snack.id} snack={snack} user={user}/>
     })
 
   return (
