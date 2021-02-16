@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import UpdateForm from './UpdateForm.js';
 
 function Profile({ user, setUser }) {
 
     const {name, age, lifestyle} = user 
 
-    console.log(user)
+    const history = useHistory() 
 
     function handleDeleteClick(){
        fetch(`http://[::1]:3001/users/${user.id}`, {
@@ -13,17 +14,11 @@ function Profile({ user, setUser }) {
        })
         .then(response => response.json())
         .then(data => {
-            redirect()
+            history.push("/")
             setUser(null)
         }) 
     }
     console.log(user)
-
-    function redirect() {
-        window.location = "http://localhost:3000/"
-        // console.log("click")
-    }
-    // const {name, age, lifestyle} = user 
 
     return (
         <div>

@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 
 function SnackItem({ snack, user }) {
 
+  const [errors, setErrors] = useState([]);
+
   function handleAddToStash(e) {
     const favorite = { 
       user_id: user.id,
-      snack_id: e.target.getAttribute('data-tag')
+      snack_id: snack.id
     }
     
     fetch('http://[::1]:3001/favorites', {
@@ -17,7 +19,12 @@ function SnackItem({ snack, user }) {
     })
     .then(response => response.json())
     .then(data => {
-      console.log('Success:', data);
+      if (data.errors) {
+        // set errors to show errors in the form
+        setErrors(data.errors);
+      } else {
+        console.log('Success:', data);
+      }
     })
   }
 
@@ -31,8 +38,18 @@ function SnackItem({ snack, user }) {
             <h4>{name}</h4>
             <img src={img_url}/>
             <br />
-            <button onClick={handleAddToStash} data-tag={id}>Add to Favorites</button>
+            {/* {errors ? (
+              <>
+              <p>{errors}</p>
+              </>
+            ) : (
+              <>
+              <button onClick={handleAddToStash} >Add to Favorites</button>
+              </>
+            )} */}
+            <button onClick={handleAddToStash} >Add to Favorites</button>
             <hr />
+            <p>{errors}</p>
         </div>
     );
 }
