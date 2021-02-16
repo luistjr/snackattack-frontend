@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import SnackItem from './SnackItem'
 
 function SnackContainer({ user }) {
-  console.log(user)
   const [snacks, setSnacks] = useState([])
   
   useEffect(() => {
@@ -11,7 +10,6 @@ function SnackContainer({ user }) {
       .then(snacksArray => setSnacks(snacksArray))
   }, [])
 
-  console.log(snacks)
   
   const snackList = 
     snacks.map((snack) => {

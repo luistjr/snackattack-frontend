@@ -1,19 +1,26 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import FavSnackItem from './FavSnackItem'
 
 function Stash({ user }) {
 
-    console.log( user )
-    // const { img, name } = favSnack
+    const { id } = user;
+    const [stash, setStash] = useState([])
 
-    // let img_url = `http://[::1]:3001/${img}`
+    useEffect(() => {
+        fetch(`http://[::1]:3001/users/${id}`) 
+            .then(r => r.json())
+            .then(data => setStash(data.snacks))
+    }, [])
+
+    let favoriteSnack = stash.map((stashItem) => {
+            return <FavSnackItem stashItem={stashItem} />
+            // need to create a unique key prop
+            // console.log(stashItem)
+        })
 
     return (
         <div>
-            {/* <h4>{name}</h4> */}
-            {/* <img src={img_url}/> */}
-            <br />
-            <button>Eat Me</button>
-            <hr />
+         {favoriteSnack}
         </div>
     )
 
