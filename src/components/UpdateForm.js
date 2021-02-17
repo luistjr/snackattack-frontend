@@ -18,7 +18,7 @@ function UpdateForm({user, setUser}) {
     function handleUpdateSubmit(e) {
         e.preventDefault();
 
-        fetch('http://[::1]:3001/me', {
+        fetch(`http://[::1]:3001/users/${user.id}`, {
             method: 'PATCH', 
             headers: {
                 'Content-Type': 'application/json',

@@ -17,8 +17,6 @@ function App() {
     fetch('http://[::1]:3001/me')
       .then(r => r.json())
       .then(user => setUser(user))
-    // get request  // me
-    // use response to set user in state
   }, [])
 
   // useEffect(() => {

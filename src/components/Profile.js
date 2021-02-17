@@ -8,12 +8,15 @@ function Profile({ user, setUser }) {
 
     const history = useHistory() 
 
+    console.log(user.id);
+
     function handleDeleteClick(){
        fetch(`http://[::1]:3001/users/${user.id}`, {
            method: "DELETE"
        })
         .then(response => response.json())
         .then(data => {
+            console.log("Data", data)
             history.push("/")
             setUser(null)
         }) 

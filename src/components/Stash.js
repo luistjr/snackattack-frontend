@@ -4,38 +4,35 @@ import FavSnackItem from './FavSnackItem'
 function Stash({ user }) {
 
     const { id } = user;
-    const [stash, setStash] = useState([])
+    // const [stash, setStash] = useState([])
     const [stashFavorites, setStashFavorites] = useState([])
 
 
     useEffect(() => {
-        fetch(`http://[::1]:3001/users/${id}`) 
+        fetch(`http://[::1]:3001/users/${id}/favorites`)
             .then(r => r.json())
             .then(data => {
-                setStash(data.snacks);
-                setStashFavorites(data.favorites);
+                setStashFavorites(data);
             })
     }, [])
 
     // changed from favorites vs snacks
 
-   console.log(stash)
-   console.log(stashFavorites)
-    
-    let favoriteSnack = stash.map((stashItem) => {
+    console.log(stashFavorites)
 
-        // console.log(stashItem)
-            return <FavSnackItem 
-            stashItem={stashItem} 
-            key={stashItem.id} 
-            userId={id}
-            favorites={stashFavorites}
-            />
-        })
+    let favoriteSnack = stashFavorites.map((stashItem) => {
+        return <FavSnackItem
+            // returnFavoriteObj={returnFavoriteObj}
+            stashItem={stashItem}
+            key={stashItem.id}
+            // userId={id}
+        />
+
+    })
 
     return (
         <div>
-         {favoriteSnack}
+            {favoriteSnack}
         </div>
     )
 

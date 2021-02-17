@@ -1,10 +1,9 @@
 import React from 'react'
 
-function FavSnackItem({ stashItem, userId, favorites }) {
+function FavSnackItem({ stashItem }) {
 
-const { img, name, id } = stashItem;
-
-console.log({favorites})
+const { id, snack } = stashItem;
+// const { userId, snackId} = favorite
 
 // const favoriteObj = {
 //   favUserId: favorites.id,
@@ -12,12 +11,13 @@ console.log({favorites})
 //   favoritesId: favorites.favoritesId
 // }
 
+console.log({stashItem})
 
-let img_url = `http://[::1]:3001/${img}`
+let img_url = `http://[::1]:3001/${snack.img}`
 
 // How do we get favorites id? // 
 
-function handleRemoveFavorite(id){
+function handleRemoveFavorite(){
     fetch(`http://[::1]:3001/favorites/${id}`, {
            method: "DELETE"
        })
@@ -29,7 +29,7 @@ function handleRemoveFavorite(id){
 
   return (
       <div>
-           <h4>{name}</h4>
+           <h4>{snack.name}</h4>
             <img src={img_url}/>
             <br />
             <button onClick={handleRemoveFavorite} >Remove from Stash</button>
