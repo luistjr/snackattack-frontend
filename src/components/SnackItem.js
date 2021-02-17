@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import '../FavSnackItem.css'
 
 function SnackItem({ snack, user }) {
 
@@ -33,7 +34,7 @@ function SnackItem({ snack, user }) {
 
   
     return (
-        <div>
+        <div className="snack-card">
             <h4>{name}</h4>
             <img src={img_url}/>
             <br />

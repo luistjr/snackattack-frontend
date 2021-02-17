@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 function UpdateForm({user, setUser}) {
+    const history = useHistory()
 
     const [formData, setFormData] = useState({
         name: user.name, 
@@ -26,7 +28,10 @@ function UpdateForm({user, setUser}) {
             body: JSON.stringify(formData),
         })
             .then(response => response.json())
-            .then(user => setUser(user))
+            .then(user => {
+                setUser(user) 
+                history.push('/Profile')
+            })
     }
 
     const { name, age, lifestyle } = formData;

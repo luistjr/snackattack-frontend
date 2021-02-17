@@ -10,7 +10,8 @@ ul {
     flex-direction: row;
     justify-content: space-between;
     flex-basis: 200px;
-    background-color: rgb(145, 12, 0);
+    /* background-color: rgb(145, 12, 0); */
+    background-color: rgb(142, 9, 0, 255);
     /* background-color: rgb(226, 184, 8); */
 }
 
