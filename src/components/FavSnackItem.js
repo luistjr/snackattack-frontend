@@ -35,11 +35,13 @@ function handleRemoveFavorite(){
 
   return (
       <div className="snack-card">
-           <h4>{snack.name}</h4>
+           <h4 className="snack-title">{snack.name}</h4>
             <img src={img_url}/>
             <br />
-            <button onClick={handleRemoveFavorite} >Remove from Stash</button>
-            <hr />
+            <button className="stash-button" onClick={handleRemoveFavorite} >Eat Snack</button>
+             {/* <hr className="line"/> */}
+             <br></br>
+            <br></br>
       </div>
   );
 }

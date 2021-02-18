@@ -17,7 +17,7 @@ function NavBar({user, setUser}) {
       {user ? (
         <>
           <Link className="button" to="/Profile"  className="button">Profile</Link>
-          <Link className="button" to="/Stash"  className="button">Stash</Link>
+          <Link className="button" to="/Stash"  className="button">Favorite Snacks</Link>
           <Link className="button" to="/SnackContainer" className="button">All Snacks</Link>
           <Link className="button" to="/Login" onClick={logout}>Logout</Link>
         </>

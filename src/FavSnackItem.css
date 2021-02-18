@@ -1,5 +1,24 @@
 .snack-card > img {
-    width: 350px;
-    height: 350px;
-    /* mix-blend-mode: multiply; */
+    display: block;
+    margin: auto;
+    width: 450px;
+    height: 450px;
+    /* padding: 10px; */
+}
+
+.stash-button {
+    width: 125px;
+    height: 25px;
+    display: block;
+    margin: auto;   
+}
+
+.snack-title {
+    text-align: center;
+    font-size: 22px;
+    font-style: monospace;
+}
+
+.line {
+   width: 200px;
 }

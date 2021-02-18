@@ -3,6 +3,7 @@ import '../FavSnackItem.css'
 
 function SnackItem({ snack, user }) {
 
+  
   const [errors, setErrors] = useState([]);
 
   function handleAddToStash(e) {
@@ -35,7 +36,7 @@ function SnackItem({ snack, user }) {
   
     return (
         <div className="snack-card">
-            <h4>{name}</h4>
+            <h4 className="snack-title">{name}</h4>
             <img src={img_url}/>
             <br />
             {/* {errors ? (
@@ -47,9 +48,11 @@ function SnackItem({ snack, user }) {
               <button onClick={handleAddToStash} >Add to Favorites</button>
               </>
             )} */}
-            <button onClick={handleAddToStash} >Add to Favorites</button>
-            <hr />
-            <p>{errors}</p>
+            <button className="stash-button" onClick={handleAddToStash} >Add to Favorites</button>
+            {/* <hr className="line"/> */}
+            <p className="snack-title">{errors}</p>
+            <br></br>
+            <br></br>
         </div>
     );
 }
