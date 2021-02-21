@@ -18,7 +18,7 @@ function SignUpForm({setUser}) {
     function handleFormSubmit(e) {
         e.preventDefault();
 
-        fetch('http://[::1]:3001/users', {
+        fetch(`${process.env.REACT_APP_RAILS_URL}/users`, {
             method: 'POST', 
             headers: {
                 'Content-Type': 'application/json',

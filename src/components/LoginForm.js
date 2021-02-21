@@ -12,7 +12,7 @@ function LoginForm({ setUser }) {
 
     // post request //login
     // response -> save user to state
-    fetch('http://[::1]:3001/login', {
+    fetch(`${process.env.REACT_APP_RAILS_URL}/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

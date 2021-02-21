@@ -8,10 +8,8 @@ function Profile({ user, setUser }) {
 
     const history = useHistory() 
 
-    console.log(user.id);
-
     function handleDeleteClick(){
-       fetch(`http://[::1]:3001/users/${user.id}`, {
+       fetch(`${process.env.REACT_APP_RAILS_URL}/users/${user.id}`, {
            method: "DELETE"
        })
         .then(response => response.json())
@@ -21,7 +19,6 @@ function Profile({ user, setUser }) {
             setUser(null)
         }) 
     }
-    console.log(user)
 
     return (
         <div>

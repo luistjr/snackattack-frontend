@@ -12,7 +12,7 @@ function SnackItem({ snack, user }) {
       snack_id: snack.id
     }
     
-    fetch('http://[::1]:3001/favorites', {
+    fetch(`${process.env.REACT_APP_RAILS_URL}favorites`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ function SnackItem({ snack, user }) {
 
   const { img, name, id } = snack
 
-  let img_url = `http://[::1]:3001/${img}`
+  let img_url = `${process.env.REACT_APP_RAILS_URL}/${img}`
 
   
     return (

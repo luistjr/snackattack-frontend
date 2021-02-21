@@ -9,7 +9,7 @@ function Stash({ user }) {
 
 
     useEffect(() => {
-        fetch(`http://[::1]:3001/users/${id}/favorites`)
+        fetch(`${process.env.REACT_APP_RAILS_URL}/users/${id}/favorites`)
             .then(r => r.json())
             .then(data => {
                 setStashFavorites(data);

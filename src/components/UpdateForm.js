@@ -20,7 +20,7 @@ function UpdateForm({user, setUser}) {
     function handleUpdateSubmit(e) {
         e.preventDefault();
 
-        fetch(`http://[::1]:3001/users/${user.id}`, {
+        fetch(`${process.env.REACT_APP_RAILS_URL}/users/${user.id}`, {
             method: 'PATCH', 
             headers: {
                 'Content-Type': 'application/json',

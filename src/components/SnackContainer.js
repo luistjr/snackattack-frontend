@@ -5,7 +5,7 @@ function SnackContainer({ user }) {
   const [snacks, setSnacks] = useState([])
   
   useEffect(() => {
-    fetch('http://[::1]:3001/snacks')
+    fetch(`${process.env.REACT_APP_RAILS_URL}/snacks`)
       .then(r => r.json())
       .then(snacksArray => setSnacks(snacksArray))
   }, [])
