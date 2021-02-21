@@ -17,12 +17,12 @@ function FavSnackItem({ stashItem }) {
 
 console.log({stashItem})
 
-let img_url = `http://[::1]:3001/${snack.img}`
+let img_url = `${process.env.REACT_APP_RAILS_URL}/${snack.img}`
 
 // How do we get favorites id? // 
 
 function handleRemoveFavorite(){
-    fetch(`http://[::1]:3001/favorites/${id}`, {
+    fetch(`${process.env.REACT_APP_RAILS_URL}/favorites/${id}`, {
            method: "DELETE"
        })
         .then(response => response.json())

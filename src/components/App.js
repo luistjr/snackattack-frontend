@@ -14,20 +14,10 @@ function App() {
 
   useEffect(() => {
 
-    fetch('http://[::1]:3001/me')
+    fetch(`${process.env.REACT_APP_RAILS_URL}/me`)
       .then(r => r.json())
       .then(user => setUser(user))
   }, [])
-
-  // useEffect(() => {
-  //   fetch("http://[::1]:3001/snacks")
-  //   .then(r => r.json())
-  //   .then(snacksArray => {
-  //     return console.log(snacksArray)
-  //   })
-  // }, []) 
-
-  console.log(user)
 
   return (
     <div className="App">
