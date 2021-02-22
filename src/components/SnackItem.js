@@ -12,7 +12,7 @@ function SnackItem({ snack, user }) {
       snack_id: snack.id
     }
     
-    fetch(`${process.env.REACT_APP_RAILS_URL}favorites`, {
+    fetch(`${process.env.REACT_APP_RAILS_URL}/favorites`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
